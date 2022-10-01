@@ -1,8 +1,10 @@
 pull_request_rules:
   - name: Automatic merge on approval
     conditions:
-      - check-success=Validate Jsons
-      - files~=^(builds/|changelogs/)$
+    - or:
+      - check-success=Validate JSONs
+      - -files~=^(!?changelogs/)
+      - -files~=^(!?builds/)
     actions:
       merge:
         method: merge
