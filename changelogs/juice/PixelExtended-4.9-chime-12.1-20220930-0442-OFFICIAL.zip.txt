@@ -2,7 +2,7 @@ Changelog - chime
 
 - Sept. security patch
 - Fixed Video Calling
-- Enable FBEv2
+- Enable FBE
 - Enable encryption
 - Upstreamed PEX sources
 - EOL build
