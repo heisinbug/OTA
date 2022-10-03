@@ -20,7 +20,8 @@ XDA="$(jq -r '.[] | .xda_thread' "${CHANGED_FILE}")"
 USERNAME="$(jq -r '.[] | .tg_username' "${CHANGED_FILE}")"
 ROM="https://github.com/PixelExtended/OTA/blob/snow/changelog.md"
 DONATION="https://heisinbug.tech/pay"
-
+if [[ $STATUS = "Active" ]]
+then
          curl -X POST -F sticker=@"${STICKER}" https://api.telegram.org/bot"${TOKEN}"/sendSticker -F chat_id="${CHAT_ID}"
 
          curl -X POST -F photo=@"${PHOTO}" https://api.telegram.org/bot"${TOKEN}"/sendPhoto -F chat_id="${CHAT_ID}" -F parse_mode=HTML -F "caption=PixelExtended ${PEXV} OFFICIAL Update for ${DEVICE_NAME} is available
@@ -41,3 +42,6 @@ Codename : ${DEVICE}
 Liked My Project <a href='${DONATION}'>Donate Here</a>
 
 #PEX #${DEVICE}"
+else
+echo "hi"
+fi
