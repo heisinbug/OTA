@@ -7,6 +7,7 @@ if ! [[ "${CHANGED_FILE}" =~ "json" ]]; then
     exit 0
 fi
 
+STATUS="$(jq -r '.[] | .status' "${CHANGED_FILE}")"
 DEVICE="$(jq -r '.[] | .device' "${CHANGED_FILE}")"
 STICKER="sticker.tgs"
 PHOTO="banner.jpeg"
